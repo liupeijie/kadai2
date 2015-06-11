@@ -36,12 +36,21 @@ int main(int argc, char** argv)
             a[i * n + j] = i * n + j; // A[i][j]
             b[i * n + j] = j * n + i; // B[i][j]
             c[i * n + j] = 0; // C[i][j]
+         
         }
     }
     
     double begin = get_time();
     
     // Write code to calculate C = A * B.
+    int k;
+    for(i = 0; i < n; i++) {
+        for(j = 0; j < n; j++) {
+            for(k = 0; k < n; k++) {
+                c[i * n + j]+=a[i * n + k]*b[k * n + j];
+            }
+        }
+    }
     
     double end = get_time();
     printf("time: %.6lf sec\n", end - begin);
